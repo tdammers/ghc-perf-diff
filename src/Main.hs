@@ -94,7 +94,7 @@ runTwo fn1 fn2 = do
 
 reportTwo :: (String, String) -> TestResults (Integer, Integer) -> IO ()
 reportTwo (fn1, fn2) results = do
-  printf "%-22s %-15s %15s %15s %9s\n" "test" "type" (cutTo 15 fn1) (cutTo 15 fn2) "dev."
+  printf "%-22s %-15s %15s %15s %9s\n" "test" "type" (dropTo 15 fn1) (dropTo 15 fn2) "dev."
   putStrLn $ replicate 80 '-'
   forM_ (Map.toAscList results) $ \((testName, dim), (val1, val2)) -> do
     let deviation = fromIntegral val2 * 100 / fromIntegral val1 - 100 :: Double
@@ -108,6 +108,12 @@ cutTo n str
   | length str > n =
       let pfl = (n-3) `div` 2
       in take pfl str ++ "..." ++ drop (length str - n + 3 + pfl) str
+  | otherwise = str
+
+dropTo :: Int -> String -> String
+dropTo n str
+  | length str > n =
+      "..." ++ drop (length str - n + 3) str
   | otherwise = str
 
 readResults :: FilePath -> String -> IO (TestResults Integer)
