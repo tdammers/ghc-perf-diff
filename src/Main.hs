@@ -6,13 +6,10 @@ import Text.Megaparsec.Char
 import Data.Maybe
 import Data.Char
 import Debug.Trace
-
-data TestResult
-  = TestResult
-      { testName :: String
-      , testMetrics :: [(Dimension, Integer)]
-      }
-      deriving (Show)
+import Control.Monad
+import Text.Printf
+import Data.Map (Map)
+import qualified Data.Map as Map
 
 data Dimension
   = BytesAllocated
@@ -20,44 +17,37 @@ data Dimension
   | MaxBytesUsed
   deriving (Show, Eq, Ord, Enum, Bounded)
 
+type TestName = String
+
+type TestResults = Map (TestName, Dimension) Integer
+
 type P a = Parsec () String a
 
-pTestResults :: P [TestResult]
-pTestResults = many (try pTestResult)
-
-pTestResult :: P TestResult
-pTestResult = do
-  testName <- (skipManyTill pAnyLine pTestHeader)
-  skipped <- pAnyLine -- skip one line, which contains the command
-  testMetrics <- catMaybes <$> many pMetricLine
-  return $ TestResult testName testMetrics
-
-pTestHeader :: P String
-pTestHeader = do
-  try (string "=====>") *> space1 *> manyTill anyChar (oneOf " \t") <* manyTill anyChar eol
+pTestResults :: P TestResults
+pTestResults = do
+  mconcat . catMaybes <$> many (try pMetricLine <|> (Nothing <$ pAnyLine))
 
 pAnyLine :: P String
-pAnyLine = manyTill anyChar eol
+pAnyLine = manyTill anySingle eol
 
-pMetricLine :: P (Maybe (Dimension, Integer))
+pMetricLine :: P (Maybe TestResults)
 pMetricLine = do
   space1
-  what <- manyTill anyChar (oneOf " \t")
-  traceM (show what)
+  what <- manyTill anySingle (oneOf " \t")
   case what of
     "Actual" -> do
       space1
-      manyTill anyChar spaceChar -- test name again, we'll ignore this
+      testName <- manyTill anySingle spaceChar
       dim <- pDimension
       string ":"
       space1
       val <- pInt
-      manyTill anyChar eol
-      traceM $ show (dim, val)
-      return $ Just (dim, val)
+      manyTill anySingle eol
+      traceM $ show (testName, dim, val)
+      return $ Just (Map.singleton (testName, dim) val)
 
     _ -> do
-      manyTill anyChar eol
+      manyTill anySingle eol
       return Nothing
 
 pDimension :: P Dimension
@@ -72,4 +62,6 @@ pInt = read <$> takeWhile1P (Just "int") isDigit
 
 main = do
   src <- getContents
-  print $ parse pTestResults "<stdin>" src
+  case parse pTestResults "<stdin>" src of
+    Left err -> print err
+    Right results -> mapM_ print $ Map.toList results
