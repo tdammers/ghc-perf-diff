@@ -1,3 +1,4 @@
+{-#LANGUAGE LambdaCase #-}
 module Main
 where
 
@@ -10,6 +11,8 @@ import Control.Monad
 import Text.Printf
 import Data.Map (Map)
 import qualified Data.Map as Map
+import System.Environment
+import Data.Void
 
 data Dimension
   = BytesAllocated
@@ -17,20 +20,25 @@ data Dimension
   | MaxBytesUsed
   deriving (Show, Eq, Ord, Enum, Bounded)
 
+dimensionName :: Dimension -> String
+dimensionName BytesAllocated = "bytes alloc"
+dimensionName PeakMegabytesAllocated = "peak MB alloc"
+dimensionName MaxBytesUsed = "max bytes used"
+
 type TestName = String
 
-type TestResults = Map (TestName, Dimension) Integer
+type TestResults a = Map (TestName, Dimension) a
 
-type P a = Parsec () String a
+type P a = Parsec Void String a
 
-pTestResults :: P TestResults
+pTestResults :: P (TestResults Integer)
 pTestResults = do
   mconcat . catMaybes <$> many (try pMetricLine <|> (Nothing <$ pAnyLine))
 
 pAnyLine :: P String
 pAnyLine = manyTill anySingle eol
 
-pMetricLine :: P (Maybe TestResults)
+pMetricLine :: P (Maybe (TestResults Integer))
 pMetricLine = do
   space1
   what <- manyTill anySingle (oneOf " \t")
@@ -43,7 +51,6 @@ pMetricLine = do
       space1
       val <- pInt
       manyTill anySingle eol
-      traceM $ show (testName, dim, val)
       return $ Just (Map.singleton (testName, dim) val)
 
     _ -> do
@@ -60,8 +67,58 @@ pDimension
 pInt :: P Integer
 pInt = read <$> takeWhile1P (Just "int") isDigit
 
-main = do
+runStdin :: IO ()
+runStdin = do
   src <- getContents
-  case parse pTestResults "<stdin>" src of
-    Left err -> print err
-    Right results -> mapM_ print $ Map.toList results
+  readResults "<stdin>" src >>= reportOne "-"
+
+runOne :: String -> IO ()
+runOne fn = do
+  src <- readFile fn
+  readResults fn src >>= reportOne fn
+
+reportOne :: String -> TestResults Integer -> IO ()
+reportOne fn results = do
+  printf "%-22s %-15s %15s\n" "test" "type" (cutTo 15 fn)
+  putStrLn $ replicate 54 '-'
+  forM_ (Map.toAscList results) $ \((testName, dim), val) -> do
+    printf "%-22s %-15s %15i\n" (cutTo 22 testName) (dimensionName dim) val
+
+runTwo :: String -> String -> IO ()
+runTwo fn1 fn2 = do
+  src1 <- readFile fn1
+  src2 <- readFile fn2
+  results1 <- readResults fn1 src1
+  results2 <- readResults fn2 src2
+  reportTwo (fn1, fn2) (Map.intersectionWith (,) results1 results2)
+
+reportTwo :: (String, String) -> TestResults (Integer, Integer) -> IO ()
+reportTwo (fn1, fn2) results = do
+  printf "%-22s %-15s %15s %15s %9s\n" "test" "type" (cutTo 15 fn1) (cutTo 15 fn2) "dev."
+  putStrLn $ replicate 80 '-'
+  forM_ (Map.toAscList results) $ \((testName, dim), (val1, val2)) -> do
+    let deviation = fromIntegral val2 * 100 / fromIntegral val1 - 100 :: Double
+    printf "%-22s %-15s %15i %15i %+8.1f%%\n"
+      (cutTo 22 testName)
+      (dimensionName dim)
+      val1 val2 deviation
+
+cutTo :: Int -> String -> String
+cutTo n str
+  | length str > n =
+      let pfl = (n-3) `div` 2
+      in take pfl str ++ "..." ++ drop (length str - n + 3 + pfl) str
+  | otherwise = str
+
+readResults :: FilePath -> String -> IO (TestResults Integer)
+readResults srcName src = do
+  case parse pTestResults srcName src of
+    Left err -> error . errorBundlePretty $ err
+    Right results -> return results
+
+main = do
+  getArgs >>= \case
+    [] -> runStdin
+    [fn] -> runOne fn
+    [a,b] -> runTwo a b
+    _ -> error "Invalid arguments"
