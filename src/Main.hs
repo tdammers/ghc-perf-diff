@@ -122,6 +122,7 @@ readResults srcName src = do
     Left err -> error . errorBundlePretty $ err
     Right results -> return results
 
+main :: IO ()
 main = do
   getArgs >>= \case
     [] -> runStdin
