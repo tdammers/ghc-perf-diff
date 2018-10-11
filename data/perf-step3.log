@@ -1,0 +1,366 @@
+PYTHON="python3" "python3" ../../../driver/runtests.py  -e "ghc_compiler_always_flags='-dcore-lint -dcmm-lint -no-user-package-db -rtsopts  -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output'" -e config.compiler_debugged=False -e ghc_with_native_codegen=True -e config.have_vanilla=True -e config.have_dynamic=True -e config.have_profiling=False -e ghc_with_threaded_rts=True -e ghc_with_dynamic_rts=True -e config.have_interp=True -e config.unregisterised=False -e config.have_gdb=True -e config.have_readelf=True -e config.ghc_dynamic_by_default=False -e config.ghc_dynamic=True -e ghc_with_smp=True -e ghc_with_llvm=False -e windows=False -e darwin=False -e config.in_tree_compiler=True --verbose=4 -e config.cleanup=True -e config.local=True --rootdir=. --config-file=../../../config/ghc -e 'config.confdir="../../../config"' -e 'config.platform="x86_64-unknown-linux"' -e 'config.os="linux"' -e 'config.arch="x86_64"' -e 'config.wordsize="64"' -e 'config.timeout=int() or config.timeout' -e 'config.exeext=""' -e 'config.top="/home/tobias/well-typed/devel/ghc-phab/testsuite"' --config 'compiler="/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2"' --config 'ghc_pkg="/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-pkg"' --config 'haddock=' --config 'hp2ps="/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/hp2ps"' --config 'hpc="/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/hpc"' --config 'gs="gs"' --config 'timeout_prog="../../../timeout/install-inplace/bin/timeout"' -e "config.stage=2"  \
+	 \
+	 \
+	 \
+	 \
+	 \
+	 \
+	
+Timeout is 300
+Found 1 .T files...
+Beginning test run at Sun Sep 23 15:31:53 2018 CEST
+====> Scanning ./all.T
+=====> T1969(normal) 1 of 43 [0, 0, 0]
+cd "T1969.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T1969.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output +RTS -G1 -RTS  +RTS -V0 -tT1969.comp.stats --machine-readable -RTS
+    Expected    T1969(normal) bytes allocated: 670839456 +/-5%
+    Lower bound T1969(normal) bytes allocated: 637297483 
+    Upper bound T1969(normal) bytes allocated: 704381429 
+    Actual      T1969(normal) bytes allocated: 674573456 
+    Deviation   T1969(normal) bytes allocated:       0.6 %
+    Expected    T1969(normal) max_bytes_used: 19738608 +/-15%
+    Lower bound T1969(normal) max_bytes_used: 16777816 
+    Upper bound T1969(normal) max_bytes_used: 22699400 
+    Actual      T1969(normal) max_bytes_used: 19131824 
+    Deviation   T1969(normal) max_bytes_used:     -3.1 %
+    Expected    T1969(normal) peak_megabytes_allocated: 73 +/-20%
+    Lower bound T1969(normal) peak_megabytes_allocated: 58 
+    Upper bound T1969(normal) peak_megabytes_allocated: 88 
+    Actual      T1969(normal) peak_megabytes_allocated: 70 
+    Deviation   T1969(normal) peak_megabytes_allocated: -4.1 %
+=====> T3294(normal) 2 of 43 [0, 0, 0]
+cd "T3294.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T3294.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output +RTS -G1 -RTS  +RTS -V0 -tT3294.comp.stats --machine-readable -RTS
+    Expected    T3294(normal) bytes allocated: 1858491504 +/-5%
+    Lower bound T3294(normal) bytes allocated: 1765566928 
+    Upper bound T3294(normal) bytes allocated: 1951416080 
+    Actual      T3294(normal) bytes allocated: 1864726048 
+    Deviation   T3294(normal) bytes allocated:        0.3 %
+    Expected    T3294(normal) max_bytes_used: 34050960 +/-20%
+    Lower bound T3294(normal) max_bytes_used: 27240768 
+    Upper bound T3294(normal) max_bytes_used: 40861152 
+    Actual      T3294(normal) max_bytes_used: 36807512 
+    Deviation   T3294(normal) max_bytes_used:      8.1 %
+=====> T4801(normal) 3 of 43 [0, 0, 0]
+cd "T4801.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T4801.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output +RTS -G1 -RTS  +RTS -V0 -tT4801.comp.stats --machine-readable -RTS
+    Expected    T4801(normal) bytes allocated: 388898280 +/-10%
+    Lower bound T4801(normal) bytes allocated: 350008452 
+    Upper bound T4801(normal) bytes allocated: 427788109 
+    Actual      T4801(normal) bytes allocated: 383294928 
+    Deviation   T4801(normal) bytes allocated:      -1.4 %
+=====> T3064(normal) 4 of 43 [0, 0, 0]
+cd "T3064.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T3064.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output +RTS -G1 -RTS  +RTS -V0 -tT3064.comp.stats --machine-readable -RTS
+    Expected    T3064(normal) bytes allocated: 272759920 +/-5%
+    Lower bound T3064(normal) bytes allocated: 259121924 
+    Upper bound T3064(normal) bytes allocated: 286397916 
+    Actual      T3064(normal) bytes allocated: 269923632 
+    Deviation   T3064(normal) bytes allocated:      -1.0 %
+    Expected    T3064(normal) peak_megabytes_allocated: 66 +/-20%
+    Lower bound T3064(normal) peak_megabytes_allocated: 52 
+    Upper bound T3064(normal) peak_megabytes_allocated: 80 
+    Actual      T3064(normal) peak_megabytes_allocated: 64 
+    Deviation   T3064(normal) peak_megabytes_allocated: -3.0 %
+=====> T4007(normal) 5 of 43 [0, 0, 0]
+cd "T4007.run" && $MAKE -s --no-print-directory T4007  
+=====> T5030(normal) 6 of 43 [0, 0, 0]
+cd "T5030.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T5030.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -freduction-depth=300 +RTS -V0 -tT5030.comp.stats --machine-readable -RTS
+    Expected    T5030(normal) bytes allocated: 794426536 +/-10%
+    Lower bound T5030(normal) bytes allocated: 714983882 
+    Upper bound T5030(normal) bytes allocated: 873869190 
+    Actual      T5030(normal) bytes allocated: 757037432 
+    Deviation   T5030(normal) bytes allocated:      -4.7 %
+=====> T5631(normal) 7 of 43 [0, 0, 0]
+cd "T5631.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T5631.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output   +RTS -V0 -tT5631.comp.stats --machine-readable -RTS
+    Expected    T5631(normal) bytes allocated: 1161885448 +/-5%
+    Lower bound T5631(normal) bytes allocated: 1103791175 
+    Upper bound T5631(normal) bytes allocated: 1219979721 
+    Actual      T5631(normal) bytes allocated: 1165383416 
+    Deviation   T5631(normal) bytes allocated:        0.3 %
+=====> parsing001(normal) 8 of 43 [0, 0, 0]
+cd "parsing001.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c parsing001.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output   +RTS -V0 -tparsing001.comp.stats --machine-readable -RTS
+    Expected    parsing001(normal) bytes allocated: 519401296 +/-5%
+    Lower bound parsing001(normal) bytes allocated: 493431231 
+    Upper bound parsing001(normal) bytes allocated: 545371361 
+    Actual      parsing001(normal) bytes allocated: 508524448 
+    Deviation   parsing001(normal) bytes allocated:      -2.1 %
+=====> T783(normal) 9 of 43 [0, 0, 0]
+cd "T783.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T783.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output -static  +RTS -V0 -tT783.comp.stats --machine-readable -RTS
+    Expected    T783(normal) bytes allocated: 481875416 +/-10%
+    Lower bound T783(normal) bytes allocated: 433687874 
+    Upper bound T783(normal) bytes allocated: 530062958 
+    Actual      T783(normal) bytes allocated: 454485944 
+    Deviation   T783(normal) bytes allocated:      -5.7 %
+=====> T5321Fun(normal) 10 of 43 [0, 0, 0]
+cd "T5321Fun.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T5321Fun.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output   +RTS -V0 -tT5321Fun.comp.stats --machine-readable -RTS
+    Expected    T5321Fun(normal) bytes allocated: 423774560 +/-5%
+    Lower bound T5321Fun(normal) bytes allocated: 402585832 
+    Upper bound T5321Fun(normal) bytes allocated: 444963288 
+    Actual      T5321Fun(normal) bytes allocated: 438838640 
+    Deviation   T5321Fun(normal) bytes allocated:       3.6 %
+=====> T5321FD(normal) 11 of 43 [0, 0, 0]
+cd "T5321FD.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T5321FD.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output   +RTS -V0 -tT5321FD.comp.stats --machine-readable -RTS
+    Expected    T5321FD(normal) bytes allocated: 371826136 +/-10%
+    Lower bound T5321FD(normal) bytes allocated: 334643522 
+    Upper bound T5321FD(normal) bytes allocated: 409008750 
+    Actual      T5321FD(normal) bytes allocated: 361041128 
+    Deviation   T5321FD(normal) bytes allocated:      -2.9 %
+=====> T5642(normal) 12 of 43 [0, 0, 0]
+cd "T5642.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T5642.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -O +RTS -V0 -tT5642.comp.stats --machine-readable -RTS
+    Expected    T5642(normal) bytes allocated: 838316496 +/-10%
+    Lower bound T5642(normal) bytes allocated: 754484846 
+    Upper bound T5642(normal) bytes allocated: 922148146 
+    Actual      T5642(normal) bytes allocated: 791675224 
+    Deviation   T5642(normal) bytes allocated:      -5.6 %
+=====> T5837(normal) 13 of 43 [0, 0, 0]
+cd "T5837.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T5837.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -freduction-depth=50 +RTS -V0 -tT5837.comp.stats --machine-readable -RTS
+    Expected    T5837(normal) bytes allocated: 55813608 +/-7%
+    Lower bound T5837(normal) bytes allocated: 51906655 
+    Upper bound T5837(normal) bytes allocated: 59720561 
+    Actual      T5837(normal) bytes allocated: 53313560 
+    Deviation   T5837(normal) bytes allocated:     -4.5 %
+=====> T6048(optasm) 14 of 43 [0, 0, 0]
+cd "T6048.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T6048.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -O -fasm  +RTS -V0 -tT6048.comp.stats --machine-readable -RTS
+    Expected    T6048(optasm) bytes allocated: 100574504 +/-10%
+    Lower bound T6048(optasm) bytes allocated:  90517053 
+    Upper bound T6048(optasm) bytes allocated: 110631955 
+    Actual      T6048(optasm) bytes allocated:  97100856 
+    Deviation   T6048(optasm) bytes allocated:      -3.5 %
+=====> T9020(optasm) 15 of 43 [0, 0, 0]
+cd "T9020.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T9020.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -O -fasm  +RTS -V0 -tT9020.comp.stats --machine-readable -RTS
+    Expected    T9020(optasm) bytes allocated: 391876936 +/-10%
+    Lower bound T9020(optasm) bytes allocated: 352689242 
+    Upper bound T9020(optasm) bytes allocated: 431064630 
+    Actual      T9020(optasm) bytes allocated: 403392208 
+    Deviation   T9020(optasm) bytes allocated:       2.9 %
+=====> T9675(optasm) 16 of 43 [0, 0, 0]
+cd "T9675.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T9675.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output +RTS -G1 -RTS -O -fasm  +RTS -V0 -tT9675.comp.stats --machine-readable -RTS
+    Expected    T9675(optasm) bytes allocated: 656137960 +/-10%
+    Lower bound T9675(optasm) bytes allocated: 590524164 
+    Upper bound T9675(optasm) bytes allocated: 721751756 
+    Actual      T9675(optasm) bytes allocated: 675560832 
+    Deviation   T9675(optasm) bytes allocated:       3.0 %
+    Expected    T9675(optasm) max_bytes_used: 17675240 +/-15%
+    Lower bound T9675(optasm) max_bytes_used: 15023954 
+    Upper bound T9675(optasm) max_bytes_used: 20326526 
+    Actual      T9675(optasm) max_bytes_used: 17882896 
+    Deviation   T9675(optasm) max_bytes_used:      1.2 %
+    Expected    T9675(optasm) peak_megabytes_allocated: 63 +/-15%
+    Lower bound T9675(optasm) peak_megabytes_allocated: 53 
+    Upper bound T9675(optasm) peak_megabytes_allocated: 73 
+    Actual      T9675(optasm) peak_megabytes_allocated: 66 
+    Deviation   T9675(optasm) peak_megabytes_allocated: 4.8 %
+=====> T9872a(normal) 17 of 43 [0, 0, 0]
+cd "T9872a.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T9872a.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output   +RTS -V0 -tT9872a.comp.stats --machine-readable -RTS
+    Expected    T9872a(normal) bytes allocated: 2729927408 +/-5%
+    Lower bound T9872a(normal) bytes allocated: 2593431037 
+    Upper bound T9872a(normal) bytes allocated: 2866423779 
+    Actual      T9872a(normal) bytes allocated: 2811387592 
+    Deviation   T9872a(normal) bytes allocated:        3.0 %
+=====> T9872b(normal) 18 of 43 [0, 0, 0]
+cd "T9872b.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T9872b.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output   +RTS -V0 -tT9872b.comp.stats --machine-readable -RTS
+    Expected    T9872b(normal) bytes allocated: 3730686224 +/-5%
+    Lower bound T9872b(normal) bytes allocated: 3544151912 
+    Upper bound T9872b(normal) bytes allocated: 3917220536 
+    Actual      T9872b(normal) bytes allocated: 3874401360 
+    Deviation   T9872b(normal) bytes allocated:        3.9 %
+=====> T9872c(normal) 19 of 43 [0, 0, 0]
+cd "T9872c.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T9872c.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output   +RTS -V0 -tT9872c.comp.stats --machine-readable -RTS
+    Expected    T9872c(normal) bytes allocated: 3096670112 +/-5%
+    Lower bound T9872c(normal) bytes allocated: 2941836606 
+    Upper bound T9872c(normal) bytes allocated: 3251503618 
+    Actual      T9872c(normal) bytes allocated: 3197862632 
+    Deviation   T9872c(normal) bytes allocated:        3.3 %
+=====> T9872d(normal) 20 of 43 [0, 0, 0]
+cd "T9872d.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T9872d.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output   +RTS -V0 -tT9872d.comp.stats --machine-readable -RTS
+    Expected    T9872d(normal) bytes allocated: 578498120 +/-5%
+    Lower bound T9872d(normal) bytes allocated: 549573214 
+    Upper bound T9872d(normal) bytes allocated: 607423026 
+    Actual      T9872d(normal) bytes allocated: 602524640 
+    Deviation   T9872d(normal) bytes allocated:       4.2 %
+=====> T9961(normal) 21 of 43 [0, 0, 0]
+cd "T9961.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T9961.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -O +RTS -V0 -tT9961.comp.stats --machine-readable -RTS
+    Expected    T9961(normal) bytes allocated: 498326216 +/-5%
+    Lower bound T9961(normal) bytes allocated: 473409905 
+    Upper bound T9961(normal) bytes allocated: 523242527 
+    Actual      T9961(normal) bytes allocated: 503629296 
+    Deviation   T9961(normal) bytes allocated:       1.1 %
+=====> T9233(normal) 22 of 43 [0, 0, 0]
+cd "T9233.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" --make  T9233 -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -v0 -O2 -fno-spec-constr +RTS -V0 -tT9233.comp.stats --machine-readable -RTS
+    Expected    T9233(normal) bytes allocated:  973149832 +/-5%
+    Lower bound T9233(normal) bytes allocated:  924492340 
+    Upper bound T9233(normal) bytes allocated: 1021807324 
+    Actual      T9233(normal) bytes allocated:  968180848 
+    Deviation   T9233(normal) bytes allocated:       -0.5 %
+=====> T10370(optasm) 23 of 43 [0, 0, 0]
+cd "T10370.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T10370.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output +RTS -G1 -RTS -O -fasm  +RTS -V0 -tT10370.comp.stats --machine-readable -RTS
+    Expected    T10370(optasm) max_bytes_used: 31524048 +/-15%
+    Lower bound T10370(optasm) max_bytes_used: 26795440 
+    Upper bound T10370(optasm) max_bytes_used: 36252656 
+    Actual      T10370(optasm) max_bytes_used: 28921608 
+    Deviation   T10370(optasm) max_bytes_used:     -8.3 %
+    Expected    T10370(optasm) peak_megabytes_allocated: 117 +/-15%
+    Lower bound T10370(optasm) peak_megabytes_allocated:  99 
+    Upper bound T10370(optasm) peak_megabytes_allocated: 135 
+    Actual      T10370(optasm) peak_megabytes_allocated: 107 
+    Deviation   T10370(optasm) peak_megabytes_allocated: -8.5 %
+=====> T10547(normal) 24 of 43 [0, 0, 0]
+cd "T10547.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T10547.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -fprint-expanded-synonyms +RTS -V0 -tT10547.comp.stats --machine-readable -RTS
+    Expected    T10547(normal) bytes allocated: 37681360 +/-20%
+    Lower bound T10547(normal) bytes allocated: 30145088 
+    Upper bound T10547(normal) bytes allocated: 45217632 
+    Actual      T10547(normal) bytes allocated: 38662016 
+    Deviation   T10547(normal) bytes allocated:      2.6 %
+=====> T12227(normal) 25 of 43 [0, 0, 0]
+cd "T12227.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T12227.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -O2 -ddump-hi -ddump-to-file +RTS -M1G +RTS -V0 -tT12227.comp.stats --machine-readable -RTS
+    Expected    T12227(normal) bytes allocated: 752214784 +/-5%
+    Lower bound T12227(normal) bytes allocated: 714604044 
+    Upper bound T12227(normal) bytes allocated: 789825524 
+    Actual      T12227(normal) bytes allocated: 744873984 
+    Deviation   T12227(normal) bytes allocated:      -1.0 %
+=====> T12425(optasm) 26 of 43 [0, 0, 0]
+cd "T12425.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T12425.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -O -fasm  +RTS -V0 -tT12425.comp.stats --machine-readable -RTS
+    Expected    T12425(optasm) bytes allocated: 139100464 +/-5%
+    Lower bound T12425(optasm) bytes allocated: 132145440 
+    Upper bound T12425(optasm) bytes allocated: 146055488 
+    Actual      T12425(optasm) bytes allocated: 141804024 
+    Deviation   T12425(optasm) bytes allocated:       1.9 %
+=====> T12234(optasm) 27 of 43 [0, 0, 0]
+cd "T12234.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T12234.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -O -fasm  +RTS -V0 -tT12234.comp.stats --machine-readable -RTS
+    Expected    T12234(optasm) bytes allocated: 85961968 +/-5%
+    Lower bound T12234(optasm) bytes allocated: 81663869 
+    Upper bound T12234(optasm) bytes allocated: 90260067 
+    Actual      T12234(optasm) bytes allocated: 84677256 
+    Deviation   T12234(optasm) bytes allocated:     -1.5 %
+=====> T12545(normal) 28 of 43 [0, 0, 0]
+cd "T12545.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" --make  T12545 -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -v0 +RTS -V0 -tT12545.comp.stats --machine-readable -RTS
+    Expected    T12545(normal) bytes allocated: 3249613688 +/-5%
+    Lower bound T12545(normal) bytes allocated: 3087133003 
+    Upper bound T12545(normal) bytes allocated: 3412094373 
+    Actual      T12545(normal) bytes allocated: 3212031504 
+    Deviation   T12545(normal) bytes allocated:       -1.2 %
+=====> T13035(normal) 29 of 43 [0, 0, 0]
+cd "T13035.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T13035.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output   +RTS -V0 -tT13035.comp.stats --machine-readable -RTS
+    Expected    T13035(normal) bytes allocated: 125020728 +/-5%
+    Lower bound T13035(normal) bytes allocated: 118769691 
+    Upper bound T13035(normal) bytes allocated: 131271765 
+    Actual      T13035(normal) bytes allocated: 123609928 
+    Deviation   T13035(normal) bytes allocated:      -1.1 %
+=====> T13056(optasm) 30 of 43 [0, 0, 0]
+cd "T13056.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T13056.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -O -fasm -O1 +RTS -V0 -tT13056.comp.stats --machine-readable -RTS
+    Expected    T13056(optasm) bytes allocated: 440548592 +/-10%
+    Lower bound T13056(optasm) bytes allocated: 396493732 
+    Upper bound T13056(optasm) bytes allocated: 484603452 
+    Actual      T13056(optasm) bytes allocated: 415012856 
+    Deviation   T13056(optasm) bytes allocated:      -5.8 %
+=====> T12707(normal) 31 of 43 [0, 0, 0]
+cd "T12707.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T12707.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output   +RTS -V0 -tT12707.comp.stats --machine-readable -RTS
+    Expected    T12707(normal) bytes allocated: 1141555816 +/-5%
+    Lower bound T12707(normal) bytes allocated: 1084478025 
+    Upper bound T12707(normal) bytes allocated: 1198633607 
+    Actual      T12707(normal) bytes allocated: 1154676744 
+    Deviation   T12707(normal) bytes allocated:        1.1 %
+=====> T12150(optasm) 32 of 43 [0, 0, 0]
+cd "T12150.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T12150.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -O -fasm  +RTS -V0 -tT12150.comp.stats --machine-readable -RTS
+    Expected    T12150(optasm) bytes allocated: 77557800 +/-5%
+    Lower bound T12150(optasm) bytes allocated: 73679910 
+    Upper bound T12150(optasm) bytes allocated: 81435690 
+    Actual      T12150(optasm) bytes allocated: 76394064 
+    Deviation   T12150(optasm) bytes allocated:     -1.5 %
+=====> T13379(normal) 33 of 43 [0, 0, 0]
+cd "T13379.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T13379.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output   +RTS -V0 -tT13379.comp.stats --machine-readable -RTS
+    Expected    T13379(normal) bytes allocated: 411597856 +/-10%
+    Lower bound T13379(normal) bytes allocated: 370438070 
+    Upper bound T13379(normal) bytes allocated: 452757642 
+    Actual      T13379(normal) bytes allocated: 419576024 
+    Deviation   T13379(normal) bytes allocated:       1.9 %
+=====> MultiLayerModules(normal) 34 of 43 [0, 0, 0]
+cd "MultiLayerModules.run" && ./genMultiLayerModules
+cd "MultiLayerModules.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" --make  MultiLayerModules -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -v0 +RTS -V0 -tMultiLayerModules.comp.stats --machine-readable -RTS
+    Expected    MultiLayerModules(normal) bytes allocated: 5619893176 +/-10%
+    Lower bound MultiLayerModules(normal) bytes allocated: 5057903858 
+    Upper bound MultiLayerModules(normal) bytes allocated: 6181882494 
+    Actual      MultiLayerModules(normal) bytes allocated: 6000869392 
+    Deviation   MultiLayerModules(normal) bytes allocated:        6.8 %
+=====> ManyConstructors(normal) 35 of 43 [0, 0, 0]
+cd "ManyConstructors.run" && ./genManyConstructors
+cd "ManyConstructors.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" --make  ManyConstructors -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -v0 +RTS -V0 -tManyConstructors.comp.stats --machine-readable -RTS
+    Expected    ManyConstructors(normal) bytes allocated: 4246959352 +/-10%
+    Lower bound ManyConstructors(normal) bytes allocated: 3822263416 
+    Upper bound ManyConstructors(normal) bytes allocated: 4671655288 
+    Actual      ManyConstructors(normal) bytes allocated: 4200639112 
+    Deviation   ManyConstructors(normal) bytes allocated:       -1.1 %
+=====> ManyAlternatives(normal) 36 of 43 [0, 0, 0]
+cd "ManyAlternatives.run" && ./genManyAlternatives
+cd "ManyAlternatives.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" --make  ManyAlternatives -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -v0 +RTS -V0 -tManyAlternatives.comp.stats --machine-readable -RTS
+    Expected    ManyAlternatives(normal) bytes allocated: 1398898072 +/-10%
+    Lower bound ManyAlternatives(normal) bytes allocated: 1259008264 
+    Upper bound ManyAlternatives(normal) bytes allocated: 1538787880 
+    Actual      ManyAlternatives(normal) bytes allocated: 1396695520 
+    Deviation   ManyAlternatives(normal) bytes allocated:       -0.2 %
+=====> T13701(normal) 37 of 43 [0, 0, 0]
+cd "T13701.run" && ./genT13701
+cd "T13701.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" --make  T13701 -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -v0 +RTS -V0 -tT13701.comp.stats --machine-readable -RTS
+    Expected    T13701(normal) bytes allocated: 2413253392 +/-10%
+    Lower bound T13701(normal) bytes allocated: 2171928052 
+    Upper bound T13701(normal) bytes allocated: 2654578732 
+    Actual      T13701(normal) bytes allocated: 2483246784 
+    Deviation   T13701(normal) bytes allocated:        2.9 %
+=====> T13719(normal) 38 of 43 [0, 0, 0]
+cd "T13719.run" && ./genT13719
+cd "T13719.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" --make  T13719 -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -v0 +RTS -V0 -tT13719.comp.stats --machine-readable -RTS
+    Expected    T13719(normal) bytes allocated: 5187889872 +/-10%
+    Lower bound T13719(normal) bytes allocated: 4669100884 
+    Upper bound T13719(normal) bytes allocated: 5706678860 
+    Actual      T13719(normal) bytes allocated: 4896700520 
+    Deviation   T13719(normal) bytes allocated:       -5.6 %
+=====> T14697(normal) 39 of 43 [0, 0, 0]
+cd "T14697.run" && ./genT14697
+cd "T14697.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" --make  T14697 -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output $(cat T14697-flags) -v0 +RTS -V0 -tT14697.comp.stats --machine-readable -RTS
+    Expected    T14697(normal) bytes allocated: 371030912 +/-10%
+    Lower bound T14697(normal) bytes allocated: 333927820 
+    Upper bound T14697(normal) bytes allocated: 408134004 
+    Actual      T14697(normal) bytes allocated: 364277392 
+    Deviation   T14697(normal) bytes allocated:      -1.8 %
+=====> T14683(normal) 40 of 43 [0, 0, 0]
+cd "T14683.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" --make  T14683 -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -v0 +RTS -V0 -tT14683.comp.stats --machine-readable -RTS
+    Expected    T14683(normal) bytes allocated: 10521594688 +/-10%
+    Lower bound T14683(normal) bytes allocated:  9469435219 
+    Upper bound T14683(normal) bytes allocated: 11573754157 
+    Actual      T14683(normal) bytes allocated: 10579911448 
+    Deviation   T14683(normal) bytes allocated:         0.6 %
+=====> Naperian(optasm) 41 of 43 [0, 0, 0]
+cd "Naperian.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c Naperian.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -O -fasm  +RTS -V0 -tNaperian.comp.stats --machine-readable -RTS
+    Expected    Naperian(optasm) bytes allocated: 53576760 +/-10%
+    Lower bound Naperian(optasm) bytes allocated: 48219084 
+    Upper bound Naperian(optasm) bytes allocated: 58934437 
+    Actual      Naperian(optasm) bytes allocated: 56616888 
+    Deviation   Naperian(optasm) bytes allocated:      5.7 %
+=====> T9630(normal) 42 of 43 [0, 0, 0]
+cd "T9630.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" --make  T9630 -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -v0 -O +RTS -V0 -tT9630.comp.stats --machine-readable -RTS
+    Expected    T9630(normal) max_bytes_used: 35324712 +/-15%
+    Lower bound T9630(normal) max_bytes_used: 30026005 
+    Upper bound T9630(normal) max_bytes_used: 40623419 
+    Actual      T9630(normal) max_bytes_used: 38599992 
+    Deviation   T9630(normal) max_bytes_used:      9.3 %
+=====> T15164(normal) 43 of 43 [0, 0, 0]
+cd "T15164.run" &&  "/home/tobias/well-typed/devel/ghc-phab/inplace/test   spaces/ghc-stage2" -c T15164.hs -no-user-package-db -rtsopts -fno-warn-missed-specialisations -fshow-warning-groups -fdiagnostics-color=never -fno-diagnostics-show-caret -dno-debug-output  -v0 -O +RTS -V0 -tT15164.comp.stats --machine-readable -RTS
+    Expected    T15164(normal) bytes allocated: 1945564312 +/-10%
+    Lower bound T15164(normal) bytes allocated: 1751007880 
+    Upper bound T15164(normal) bytes allocated: 2140120744 
+    Actual      T15164(normal) bytes allocated: 1947950888 
+    Deviation   T15164(normal) bytes allocated:        0.1 %
+
+SUMMARY for test run started at Sun Sep 23 15:31:53 2018 CEST
+ 0:03:24 spent to go through
+      43 total tests, which gave rise to
+     117 test cases, of which
+      74 were skipped
+
+       1 had missing libraries
+      42 expected passes
+       0 expected failures
+
+       0 caused framework failures
+       0 caused framework warnings
+       0 unexpected passes
+       0 unexpected failures
+       0 unexpected stat failures
+
