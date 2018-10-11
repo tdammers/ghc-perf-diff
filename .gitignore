@@ -1,0 +1,8 @@
+.stack-work/
+.cabal-sandbox/
+*~
+.*.sw[op]
+tags
+.*
+!.gitignore
+dist-newstyle
